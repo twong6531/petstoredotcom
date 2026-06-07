@@ -3,14 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10 Things Every Online Pet Store Owner Should Be Doing Right Now | PetStore.com Blog</title>
-  <meta name="description" content="The $158 billion pet industry is booming — here's how independent online stores can grab their slice without getting crushed by Chewy and Amazon." />
+  <title>Blog — The Pet Owner's Playbook | PetStore.com</title>
+  <meta name="description" content="Expert guides, industry strategy, and honest product advice for pet store owners and passionate pet parents." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" />
+  <style>
+    .blog-index-hero {
+      background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+      color: #fff;
+      padding: 72px 0 60px;
+      text-align: center;
+    }
+    .blog-index-hero h1 { font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 800; margin-bottom: 12px; }
+    .blog-index-hero p { opacity: .8; max-width: 520px; margin: 0 auto 24px; }
+    .blog-filters {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .filter-btn {
+      padding: 7px 18px; border-radius: 99px; border: 2px solid var(--border);
+      background: #fff; font-size: .85rem; font-weight: 600; cursor: pointer;
+      transition: all .15s; color: var(--muted);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      border-color: var(--green); color: var(--green); background: #D8F3DC;
+    }
+    .post-count {
+      font-size: .85rem; color: var(--muted); margin-bottom: 24px; text-align: center;
+    }
+    .skeleton { animation: pulse 1.5s infinite; }
+    .skeleton-card {
+      background: #fff; border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden;
+    }
+    .skeleton-img { height: 180px; background: var(--sand); }
+    .skeleton-body { padding: 24px; }
+    .skeleton-line {
+      height: 12px; border-radius: 6px; background: var(--sand); margin-bottom: 10px;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+    .empty-state { text-align: center; padding: 80px 24px; color: var(--muted); }
+    .empty-state .icon { font-size: 3rem; margin-bottom: 16px; }
+  </style>
 </head>
 <body>
 
-<!-- ── Navigation ── -->
 <nav>
   <div class="container nav-inner">
     <a href="index.html" class="nav-logo">
@@ -30,177 +65,85 @@
   </div>
 </nav>
 
-<!-- ── Blog Hero ── -->
-<div class="blog-hero">
+<div class="blog-index-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a> → <a href="blog.html">Blog</a> → Industry Strategy</div>
-    <div style="margin-bottom:16px;">
-      <span class="tag tag-green" style="background:rgba(255,255,255,.15);color:#fff;">Strategy</span>
-      <span class="tag" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);margin-left:8px;">10 min read</span>
-    </div>
-    <h1>10 Things Every Online Pet Store Owner Should Be Doing Right Now (But Probably Isn't)</h1>
-    <div class="post-meta">
-      <span>📅 June 6, 2026</span>
-      <span>✍️ PetStore.com Editorial Team</span>
-      <span>🏷️ Ecommerce · Marketing · Pet Industry</span>
+    <div class="overline" style="color:var(--amber);margin-bottom:12px;">Updated Daily</div>
+    <h1>The Pet Owner's Playbook</h1>
+    <p>Expert guides, industry strategy, and honest product advice — published every morning by our editorial team.</p>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:8px 18px;font-size:.85rem;">
+      📬 <a href="index.html#newsletter" style="color:#fff;text-decoration:underline;">Subscribe for weekly digests</a>
     </div>
   </div>
 </div>
 
-<!-- ── Post Content ── -->
-<div class="container">
-  <div class="post-layout">
+<section class="section" style="padding-top:48px;">
+  <div class="container">
 
-    <!-- Article -->
-    <article class="post-body">
+    <div class="blog-filters" id="filters">
+      <button class="filter-btn active" data-filter="all">All Posts</button>
+      <button class="filter-btn" data-filter="Strategy">Strategy</button>
+      <button class="filter-btn" data-filter="Nutrition">Nutrition</button>
+      <button class="filter-btn" data-filter="Wellness">Wellness</button>
+      <button class="filter-btn" data-filter="Marketing">Marketing</button>
+      <button class="filter-btn" data-filter="Tech">Tech</button>
+    </div>
 
-      <p class="intro">The numbers don't lie: Americans spent <strong>$158 billion</strong> on their pets in 2025, and that figure is forecast to hit <strong>$228 billion by 2031</strong>. But if you're running an independent online pet store, you've probably noticed that those billions aren't exactly flowing your way while Chewy posts $3.1 billion in quarterly sales. The good news? The same trends driving the industry's explosive growth are creating specific opportunities that Chewy and Amazon structurally <em>cannot</em> exploit.</p>
+    <div class="post-count" id="post-count"></div>
 
-      <h2>1. Stop Fighting Chewy on Price. Start Out-Experting Them.</h2>
-      <p>Chewy controls 42%+ of the online pet supply market. You will not beat them on price. Full stop.</p>
-      <p>What you <em>can</em> beat them on is expertise, curation, and community. A 2,000-word guide on "choosing a raw diet for a senior German Shepherd with joint issues" is worth more than any coupon code — it builds trust that converts browsers into buyers and turns buyers into lifetime customers.</p>
-      <p>Independent pet stores that win are the ones positioning themselves as the <strong>knowledgeable local expert who happens to have a world-class online store</strong>, not as a cheaper version of Chewy.</p>
-
-      <h2>2. Build an Autoship Program — Your Customers Are Already On One (Just Not Yours)</h2>
-      <p>Here's the scariest stat in pet ecommerce: <strong>83% of Chewy's revenue comes from Autoship subscribers.</strong> That's not a feature. That's a moat.</p>
-      <p>If you sell consumables — food, treats, supplements, litter — and you don't have a subscription option, you're actively training your customers to go to Chewy for their repeat purchases. Apps like Recharge (for Shopify) let you spin up a "subscribe and save" program in a weekend. Offer 10-15% off on subscriptions, and you'll convert one-time buyers into reliable monthly revenue overnight.</p>
-
-      <h2>3. Get Into the Niches That Chewy Treats Like an Afterthought</h2>
-      <p>Raw food. Freeze-dried toppers. Functional calming chews. Eco-friendly tofu litter. Human-grade ingredients. Breed-specific formulas.</p>
-      <p>These categories are growing at 18-26% CAGR and the big retailers handle them poorly — bad merchandising, weak content, no expertise. That's your opening. Pet food launches globally grew 26% annually from 2021-2025, almost entirely driven by premium and functional products. A customer who found you because you carry the best freeze-dried quail topper in the country is not going to Amazon for their next order.</p>
-
-      <h2>4. Own Long-Tail SEO Before Anyone Else Does</h2>
-      <p>You cannot rank for "dog food." You <em>can</em> rank for "freeze-dried raw turkey dog food for senior dogs" — and that searcher has a credit card in their hand.</p>
-      <p>Google's AI Overviews are reshaping search results right now, and genuinely helpful, expert-authored content is winning. A pet store that publishes 50 well-researched, specific articles — breed guides, condition-specific nutrition advice, product comparisons — will own a library of organic traffic that compounds for years at zero marginal cost.</p>
-      <p>Start with your top 20 best-selling products and write the definitive guide for each one. That's it. That's the strategy.</p>
-
-      <h2>5. TikTok Shop Is the Most Underused Channel in Pet Ecommerce</h2>
-      <p>Gen Z is now 25% of U.S. pet owners and they make purchase decisions on TikTok and Instagram — not Google. And they spend.</p>
-      <p>TikTok Shop now compresses the entire funnel from discovery to checkout into a single scroll. Pet content is among the highest-engagement content on the platform — pet influencer posts see <strong>10-40% engagement rates</strong> versus 1-3% for typical lifestyle accounts. A single viral video of a dog going crazy for your freeze-dried liver treats can sell out your inventory.</p>
-      <p>If you're not posting on TikTok and tagging your products, you're invisible to the fastest-growing buyer demographic in the industry.</p>
-
-      <h2>6. Set Up These Three Klaviyo Flows (If You Do Nothing Else on This List)</h2>
-      <p>The dominant stack for independent pet ecommerce right now is <strong>Shopify + Klaviyo</strong>, and for good reason. Over 117,000 brands use them together.</p>
-      <p>The three flows that pay for themselves immediately:</p>
-      <ul>
-        <li><strong>Abandoned cart</strong> — recovering even 10-15% of abandons is pure margin</li>
-        <li><strong>Post-purchase upsell</strong> — someone bought a harness? Recommend the matching leash and a training treat sampler</li>
-        <li><strong>Win-back sequence</strong> — if a customer hasn't ordered in 90 days, a targeted "we miss your pup" email with a time-limited discount is consistently the highest-ROI email you can send</li>
-      </ul>
-      <p>This isn't advanced marketing. This is table stakes in 2026. If you don't have these running, start today.</p>
-
-      <h2>7. Build a Loyalty Program Around Your Best Customers</h2>
-      <p>Customer acquisition costs are rising across every channel. The math is brutal: acquiring a new customer costs 5-7x more than retaining an existing one.</p>
-      <p>A points program tied to your email flows — Smile.io or LoyaltyLion both integrate natively with Shopify + Klaviyo — creates a compounding retention engine. VIP tiers (early access to new products, free samples for top spenders, birthday treats for their pets) create the kind of emotional connection that Chewy's algorithm literally cannot replicate.</p>
-      <p>Your best 20% of customers are probably generating 60-70% of your revenue. Build something that makes them feel like insiders, not just order numbers.</p>
-
-      <h2>8. Pet Humanization Is Your Tailwind — Position Into It</h2>
-      <p>The single biggest macro force in the industry right now: pet owners increasingly treat their animals as family members, and they're spending accordingly.</p>
-      <p>Gen X — the highest-income pet owner segment, up 12% in ownership in 2025 — is driving demand for premium nutrition, preventive health products, and wellness supplements. These are people who research ingredients, read labels, and will pay a significant premium for quality they trust.</p>
-      <p>Position your store around premium, wellness-focused, expert-curated products. <em>"We only carry brands we'd feed our own dogs"</em> is a brand story that resonates — and it's one Amazon can never credibly tell.</p>
-
-      <h2>9. Fix Your Shipping Strategy Before It Kills Your Margins</h2>
-      <p>Heavy, bulky pet products make shipping cost management existential. Free shipping is now a customer expectation — but absorbing it on a 30-pound bag of kibble at a 20% margin is a fast path to unprofitability.</p>
-      <p>Some options that actually work:</p>
-      <ul>
-        <li><strong>Free shipping threshold</strong> — set it just above your average order value to pull up basket size</li>
-        <li><strong>Flat-rate shipping subscriptions</strong> — a $9/month "free shipping club" converts well and locks in repeat behavior</li>
-        <li><strong>Autoship ships free</strong> — using free shipping as the autoship incentive kills two birds with one stone</li>
-      </ul>
-      <p>Build your shipping math into your product pricing before you launch anything new. The worst time to discover you're losing $6 per order is after 500 orders.</p>
-
-      <h2>10. The Pet Tech Wave Is Coming — Get There First</h2>
-      <p>The global pet tech market is projected to grow from <strong>$19.1 billion in 2026 to $52.9 billion by 2035</strong>. Smart feeders, GPS trackers, wearable health monitors, AI-powered vet consult tools — these categories barely exist in most independent pet stores.</p>
-      <p>You don't need to stock 50 pet tech SKUs. You need to be the store that your customers associate with knowing what's new and worth buying. Carry 3-5 well-chosen smart devices, write the honest "is this worth it?" review content, and you'll capture the curious early adopters who become your most enthusiastic evangelists.</p>
-
-      <hr style="border:none;border-top:1px solid var(--border);margin:48px 0;" />
-
-      <h2 style="border-left:none;padding-left:0;color:var(--ink);">The Bottom Line</h2>
-      <p>The pet industry's growth isn't going anywhere. What's shifting is <em>where</em> that money goes — and the stores that win over the next five years will be the ones that out-expert, out-connect, and out-retain the big platforms rather than trying to out-price them.</p>
-      <p>Pick two items from this list. Build them out properly. Then come back for the next two.</p>
-      <p>Your customers love their pets more than they love Chewy's free shipping. Give them a reason to love your store, and they'll stay.</p>
-
-      <div style="background:var(--sand);border-radius:var(--radius);padding:28px;margin-top:40px;border:1px solid var(--border);">
-        <p style="margin-bottom:16px;font-weight:700;">Want to put these strategies to work immediately?</p>
-        <p style="margin-bottom:20px;">Start with strategy #2: set up an autoship program so your customers can save 15% on everything they already buy. We've already done it — and our subscribers spend 3x more per year than one-time buyers.</p>
-        <a href="index.html#autoship" class="btn btn-primary">Start Your Autoship →</a>
-      </div>
-
-    </article>
-
-    <!-- Sidebar -->
-    <aside class="post-sidebar">
-      <div class="sidebar-card">
-        <h4>In This Article</h4>
-        <ul class="toc-list">
-          <li><a href="#">Stop Fighting on Price</a></li>
-          <li><a href="#">Build an Autoship Program</a></li>
-          <li><a href="#">Get Into Niche Products</a></li>
-          <li><a href="#">Own Long-Tail SEO</a></li>
-          <li><a href="#">TikTok Shop</a></li>
-          <li><a href="#">Klaviyo Email Flows</a></li>
-          <li><a href="#">Loyalty Programs</a></li>
-          <li><a href="#">Pet Humanization</a></li>
-          <li><a href="#">Fix Shipping Margins</a></li>
-          <li><a href="#">The Pet Tech Wave</a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-card" style="background:linear-gradient(135deg,var(--green),var(--green-l));color:#fff;border:none;">
-        <h4 style="color:rgba(255,255,255,.8);">🔁 Subscribe & Save 15%</h4>
-        <p style="font-size:.88rem;opacity:.9;margin-bottom:16px;">Turn your one-time purchases into automatic savings. Food, treats, supplements — all on your schedule.</p>
-        <a href="index.html#autoship" class="btn" style="background:#fff;color:var(--green);width:100%;text-align:center;">Set Up Autoship</a>
-      </div>
-
-      <div class="sidebar-card">
-        <h4>Featured Products</h4>
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="display:flex;gap:12px;align-items:center;">
-            <div style="font-size:1.8rem;flex-shrink:0;">🥩</div>
-            <div>
-              <div style="font-size:.85rem;font-weight:700;">Primal Freeze-Dried Turkey</div>
-              <div style="font-size:.8rem;color:var(--muted);">$38.99 · Bestseller</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:12px;align-items:center;">
-            <div style="font-size:1.8rem;flex-shrink:0;">🧡</div>
-            <div>
-              <div style="font-size:.85rem;font-weight:700;">Calming Chews w/ L-Theanine</div>
-              <div style="font-size:.8rem;color:var(--muted);">$42.00 · Vet-Formulated</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:12px;align-items:center;">
-            <div style="font-size:1.8rem;flex-shrink:0;">🌿</div>
-            <div>
-              <div style="font-size:.85rem;font-weight:700;">Tofu Cat Litter — Unscented</div>
-              <div style="font-size:.8rem;color:var(--muted);">$22.99 · Eco Pick</div>
-            </div>
-          </div>
-          <a href="index.html#products" class="btn btn-outline" style="text-align:center;margin-top:4px;">Shop All →</a>
+    <div class="blog-grid" id="posts-grid">
+      <!-- skeleton loaders -->
+      <div class="skeleton-card skeleton">
+        <div class="skeleton-img"></div>
+        <div class="skeleton-body">
+          <div class="skeleton-line" style="width:40%"></div>
+          <div class="skeleton-line" style="width:85%"></div>
+          <div class="skeleton-line" style="width:70%"></div>
+          <div class="skeleton-line" style="width:55%;margin-top:16px"></div>
         </div>
       </div>
-
-      <div class="sidebar-card">
-        <h4>📬 Get the Newsletter</h4>
-        <p style="font-size:.85rem;color:var(--muted);margin-bottom:14px;">Weekly expert picks and subscriber-only discounts.</p>
-        <form onsubmit="handleSub(event)" style="display:flex;flex-direction:column;gap:10px;">
-          <input type="email" placeholder="your@email.com" required style="padding:10px 14px;border-radius:8px;border:2px solid var(--border);font-size:.9rem;outline:none;" />
-          <button type="submit" class="btn btn-primary" style="width:100%;">Subscribe</button>
-        </form>
-        <p id="sub-ok" style="display:none;font-size:.82rem;color:var(--green);margin-top:8px;">✓ You're in!</p>
+      <div class="skeleton-card skeleton">
+        <div class="skeleton-img"></div>
+        <div class="skeleton-body">
+          <div class="skeleton-line" style="width:35%"></div>
+          <div class="skeleton-line" style="width:90%"></div>
+          <div class="skeleton-line" style="width:60%"></div>
+          <div class="skeleton-line" style="width:50%;margin-top:16px"></div>
+        </div>
       </div>
-    </aside>
+      <div class="skeleton-card skeleton">
+        <div class="skeleton-img"></div>
+        <div class="skeleton-body">
+          <div class="skeleton-line" style="width:45%"></div>
+          <div class="skeleton-line" style="width:80%"></div>
+          <div class="skeleton-line" style="width:65%"></div>
+          <div class="skeleton-line" style="width:48%;margin-top:16px"></div>
+        </div>
+      </div>
+    </div>
 
   </div>
-</div>
+</section>
 
-<!-- ── Footer ── -->
+<!-- Newsletter -->
+<section class="newsletter">
+  <div class="container newsletter-inner">
+    <div class="overline" style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-l);margin-bottom:10px;">Stay in the loop</div>
+    <h2>Pet Expert Picks, Straight to Your Inbox</h2>
+    <p>Weekly: new post roundups, vet-backed nutrition tips, and exclusive subscriber-only discounts.</p>
+    <form class="newsletter-form" onsubmit="handleSub(event)">
+      <input type="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+    <p id="sub-msg" style="margin-top:12px;font-size:.85rem;color:var(--green);display:none;">✓ You're in!</p>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <div style="font-size:1.3rem;font-weight:800;color:#fff;">🐾 PetStore<span style="color:var(--amber)">.com</span></div>
-        <p>The expert-curated pet store for owners who treat their animals like family. Premium products, honest advice, zero filler.</p>
+        <p>The expert-curated pet store for owners who treat their animals like family.</p>
       </div>
       <div class="footer-col">
         <h4>Shop</h4>
@@ -236,11 +179,62 @@
 </footer>
 
 <script>
-  function handleSub(e) {
-    e.preventDefault();
-    document.getElementById('sub-ok').style.display = 'block';
-    e.target.reset();
+  let allPosts = [];
+  let activeFilter = 'all';
+
+  function renderPosts(posts) {
+    const grid = document.getElementById('posts-grid');
+    const count = document.getElementById('post-count');
+
+    if (!posts.length) {
+      grid.innerHTML = '<div class="empty-state"><div class="icon">📭</div><p>No posts yet — check back tomorrow!</p></div>';
+      count.textContent = '';
+      return;
+    }
+
+    count.textContent = `${posts.length} article${posts.length !== 1 ? 's' : ''}`;
+
+    grid.innerHTML = posts.map(p => `
+      <a href="posts/${p.slug}.html" class="blog-card">
+        <div class="blog-card-img" style="background:${p.gradient || 'linear-gradient(135deg,#1B4332,#2D6A4F)'}">${p.emoji || '📄'}</div>
+        <div class="blog-card-body">
+          <div class="meta">
+            <span class="tag ${p.categoryClass || 'tag-green'}">${p.category}</span>
+            <span>${p.displayDate} · ${p.readTime}</span>
+          </div>
+          <h3>${p.title}</h3>
+          <p>${p.description}</p>
+          <span class="read-more">Read article →</span>
+        </div>
+      </a>
+    `).join('');
   }
+
+  function applyFilter(filter) {
+    activeFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.filter === filter);
+    });
+    const filtered = filter === 'all' ? allPosts : allPosts.filter(p => p.category === filter);
+    renderPosts(filtered);
+  }
+
+  document.getElementById('filters').addEventListener('click', e => {
+    if (e.target.classList.contains('filter-btn')) applyFilter(e.target.dataset.filter);
+  });
+
+  fetch('posts.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(posts => {
+      allPosts = posts;
+      applyFilter(activeFilter);
+    })
+    .catch(() => {
+      document.getElementById('posts-grid').innerHTML =
+        '<div class="empty-state"><div class="icon">⚠️</div><p>Could not load posts. Try refreshing.</p></div>';
+    });
+
+  function handleSub(e) { e.preventDefault(); document.getElementById('sub-msg').style.display='block'; e.target.reset(); }
 </script>
 
 </body>
